@@ -1,7 +1,7 @@
 export default interface Book {
+  isbn: string;
   title: string;
-  covers: number[];
-  genres: string[];
   authors: string[];
   description: string;
+  genres?: string[];
 }

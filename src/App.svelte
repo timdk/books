@@ -1,18 +1,36 @@
 <script>
-	import Book from "./Book.svelte";
-	import bookData from "../data/data.json";
+	import Filter from './components/Filter.svelte';
+	import BookList from './components/BookList.svelte';
 </script>
 
-<template>
-	<h1>Books</h1>
+<svelte:head>
+	<title>Books</title>
+	<meta name="robots" content="noindex nofollow" />
+	<html lang="en" />
+</svelte:head>
 
-	{#each Object.entries(bookData) as [isbn, book]}
-		<Book {isbn} {book} />
-	{/each}
+<template>
+	<main>
+		<h1>Books</h1>
+		<Filter />
+		<BookList />
+	</main>
 </template>
 
-<style>
+<style lang="scss">
+	:global(html) {
+		background: #f3f3f3;
+	}
+
 	:global(p) {
 		margin: 0;
+	}
+
+	main {
+		max-width: 1100px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 15px;
+		padding-right: 15px;
 	}
 </style>

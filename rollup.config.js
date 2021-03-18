@@ -48,7 +48,10 @@ export default {
 			},
 		}),
 
-		typescript({ sourceMap: !production }),
+		typescript({
+			sourceMap: !production,
+			resolveJsonModule: true
+		}),
 
 		json({
 			compact: true
