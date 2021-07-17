@@ -3,4 +3,5 @@
 /public
 /.cache
 /.idea
+/.vscode
 /data/data.json
