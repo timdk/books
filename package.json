@@ -2,6 +2,7 @@
   "name": "books",
   "version": "1.0.0",
   "scripts": {
+    "buildCache": "node ./scripts/buildBookData.js",
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public"
