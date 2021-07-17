@@ -5,4 +5,6 @@
   const href = `https://openlibrary.org/isbn/${isbn}`;
 </script>
 
-<a class={className} {href} target="_blank"><slot /></a>
+<a class={className} {href} target="_blank">
+  <slot />
+</a>

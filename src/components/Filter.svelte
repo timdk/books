@@ -8,21 +8,21 @@
   </label>
 </template>
 
-<style>
+<style lang="scss">
   .filter {
     width: 100%;
-    height: 30px;
-    margin-bottom: 15px;
-    border: 1px solid #bdbdbd;
-    border-radius: 30px;
-    overflow: hidden;
+    max-width: 1000px;
+    height: 40px;
+    margin: 0 auto 30px;
   }
 
   .input {
     width: 100%;
     height: 100%;
     padding: 0 15px;
-    border: none;
+    border: 1px solid #bdbdbd;
+    border-radius: 30px;
     outline: none;
+    overflow: hidden;
   }
 </style>

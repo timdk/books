@@ -1,23 +1,24 @@
 <script lang="ts">
-  import type Book from "./models/book";
+  import type Book from "../models/book";
   import BookLink from "./BookLink.svelte";
+  import CoverImage from "./CoverImage.svelte";
 
   export let book: Book;
-  const { isbn, title, description, authors } = book;
-
-  const imgSrc = `https://covers.openlibrary.org/b/isbn/${isbn}-S.jpg`;
+  const { isbn, olid, title, description, authors } = book;
 </script>
 
 <template>
   <div class="book">
     <div class="cover">
       <BookLink {isbn}>
-        <img class="cover-img" src="https://via.placeholder.com/100x150.png" alt="" />
+        <CoverImage {olid} />
       </BookLink>
     </div>
     <div class="meta">
-      <p class="title"><BookLink {isbn}>{title}</BookLink></p>
-      <p class="author">{authors.join(', ')}</p>
+      <p class="title">
+        <BookLink {isbn}>{title}</BookLink>
+      </p>
+      <p class="author">{authors.join(", ")}</p>
     </div>
     <p class="description">{description}</p>
   </div>
@@ -27,23 +28,19 @@
   .book {
     display: flex;
     align-items: flex-start;
-    max-height: 150px;
+    height: 200px;
     overflow: hidden;
-    
-    &:not(:last-child) { 
+
+    &:not(:last-child) {
       margin-bottom: 15px;
     }
   }
 
   .cover {
     display: block;
-    width: 150px;
-    flex-shrink: 0;
-  }
-
-  .cover-img {
+    width: 200px;
     height: 100%;
-    width: auto;
+    flex-shrink: 0;
   }
 
   .meta {
@@ -52,11 +49,26 @@
   }
 
   .title {
+    margin-bottom: 15px;
     font-size: 18px;
     font-weight: bold;
   }
 
   .description {
+    position: relative;
     flex-basis: 50%;
+    height: 100%;
+    background: white;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 50px;
+      width: 100%;
+      background: linear-gradient(transparent, white);
+    }
   }
 </style>
